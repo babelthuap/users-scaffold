@@ -19,7 +19,7 @@ module.exports = function(req, res, next) {
   }
 
   if (decoded.exp < moment().unix()) {
-    return res.status(401).send('authorization required');
+    return res.status(401).send('authorization expired');
   }
 
   if (CONFIG.refreshToken) {
