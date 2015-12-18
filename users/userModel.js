@@ -1,10 +1,10 @@
 'use strict';
 
 const mongoose = require('mongoose')
-    , jwt = require('jwt-simple')
-    , bcrypt = require('bcryptjs')
-    , moment = require('moment')
-    , CONFIG = require('./authConfig');
+    , jwt      = require('jwt-simple')
+    , bcrypt   = require('bcryptjs')
+    , moment   = require('moment')
+    , CONFIG   = require('./authConfig');
 
 let User;
 
@@ -40,8 +40,8 @@ userSchema.statics.login = function(userInfo, cb) {
 }
 
 userSchema.statics.register = function(userInfo, cb) {
-  let username = userInfo.username
-    , password = userInfo.password
+  let username  = userInfo.username
+    , password  = userInfo.password
     , password2 = userInfo.password2;
 
   // compare passwords

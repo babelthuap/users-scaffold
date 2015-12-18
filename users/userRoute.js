@@ -1,7 +1,7 @@
 'use strict';
 
 const express = require('express')
-    , User = require('./userModel');
+    , User    = require('./userModel');
 
 let router = express.Router();
 

@@ -1,9 +1,9 @@
 'use strict';
 
-const jwt = require('jwt-simple')
+const jwt    = require('jwt-simple')
     , moment = require('moment')
     , CONFIG = require('./authConfig')
-    , User = require('./userModel');
+    , User   = require('./userModel');
 
 module.exports = function(req, res, next) {
   if (!req.headers.authorization) {
