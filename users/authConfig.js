@@ -3,7 +3,7 @@
 module.exports = {
   expTime: {num: 7, unit: 'days'},
   refresh: true,
-  saltRounds: 13,
+  saltRounds: 10,
   validatePassword: function(password) {
     return true;
   },

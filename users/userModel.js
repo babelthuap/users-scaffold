@@ -22,6 +22,23 @@ userSchema.methods.token = function() {
   return jwt.encode(payload, process.env.JWT_SECRET);
 };
 
+userSchema.statics.login = function(userInfo, cb) {
+  // look for user in database
+  User.findOne({username: userInfo.username}, (err, foundUser) => {
+    if (err) return cb('server error');
+    if (!foundUser) return cb('incorrect username or password');
+    bcrypt.compare(userInfo.password, foundUser.password, (err, isGood) => {
+      if (err) return cb('server err');
+      if (isGood) {
+        foundUser.password = null;
+        return cb(null, foundUser.token());
+      } else {
+        return cb('incorrect username or password');
+      }
+    });
+  });
+}
+
 userSchema.statics.register = function(userInfo, cb) {
   let username = userInfo.username
     , password = userInfo.password
