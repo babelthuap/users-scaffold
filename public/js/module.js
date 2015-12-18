@@ -1,7 +1,25 @@
-'use strict'
+'use strict';
 
-angular.module('authApp', [])
+angular.module('authApp', ['ui.router', 'ngStorage'])
 
-.controller('mainCtrl', function($scope){
-  $scope.test = "not a test";
+.run(function($localStorage, $rootScope){
+  $rootScope.$storage = $localStorage;
+})
+
+.config(function($stateProvider, $urlRouterProvider){
+
+  $urlRouterProvider.otherwise('/login');
+
+  $stateProvider
+  .state('login',{
+    url: '/login',
+    templateUrl:'partials/login.html',
+    controller:'loginCtrl'
+  })
+  .state('register',{
+    url: '/register',
+    templateUrl:'partials/register.html',
+    controller:'registerCtrl'
+  })
+
 })

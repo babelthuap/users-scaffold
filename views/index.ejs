@@ -2,11 +2,18 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/css/style.css' />
+    <link rel='stylesheet' href='css/style.css' />
+    <link rel='stylesheet' href='vendor/bootstrap/dist/css/bootstrap.min.css' />
     <script src="vendor/angular/angular.min.js"></script>
+    <script src="vendor/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="vendor/ngstorage/ngStorage.min.js"></script>
     <script src="js/module.js"></script>
+    <script src="js/auth/ctrl.js"></script>
+    <script src="js/auth/srvc.js"></script>
   </head>
-  <body ng-app="authApp" ng-controller="mainCtrl">
-    {{test}}
+  <body ng-app="authApp">
+    <a ui-sref="login">Login</a>
+    <a ui-sref="register">Register</a>
+    <ui-view></ui-view>
   </body>
 </html>
